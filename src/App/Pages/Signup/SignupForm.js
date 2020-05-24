@@ -1,27 +1,25 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Form, Input, notification } from 'antd'
+import firebase from 'firebase'
+import { Link, useHistory } from 'react-router-dom'
+import { Button, Form, Input } from 'antd'
 
 const SignupForm = () => {
+  const history = useHistory()
   const [loading, setLoading] = useState(false)
 
-  // Replace this function
-  const onFinish = async values => {
+  const onFinish = async ({ email, password }) => {
     setLoading(true)
-    notification['info']({
-      message: 'Sign up',
-      description: 'Replace the onFinish function in order to make this work',
-    })
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, password)
+      history.push('/home')
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    }
   }
 
   return (
     <Form layout="vertical" name="signup" onFinish={onFinish}>
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}>
-        <Input />
-      </Form.Item>
       <Form.Item
         label="Email"
         name="email"
