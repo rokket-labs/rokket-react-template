@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Layout, Dropdown, Menu, Row, Button, Col } from 'antd'
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  DownOutlined,
-} from '@ant-design/icons'
-import { useAuth } from 'App/context/auth'
+import { UserOutlined, DownOutlined } from '@ant-design/icons'
 
-const { Sider, Header, Content, Footer } = Layout
+import { useAuth } from 'App/context/auth'
+import Sidebar from './Sidebar'
+
+const { Header, Content, Footer } = Layout
 const AppLayout = ({ children }) => {
   const history = useHistory()
   const { currentUser, signout } = useAuth()
@@ -39,26 +36,7 @@ const AppLayout = ({ children }) => {
   )
   return (
     <Layout>
-      <Sider style={{ height: '100vh' }}>
-        <div
-          style={{
-            height: 32,
-            backgroundColor: '#ffffff33',
-            margin: 16,
-          }}
-        />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            nav 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
-          </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      <Sidebar />
       <Layout>
         <Header style={{ padding: 0, backgroundColor: '#fff' }}>
           <Row justify="end">

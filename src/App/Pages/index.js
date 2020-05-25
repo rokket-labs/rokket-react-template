@@ -15,6 +15,8 @@ const Pages = () => {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <PrivateRoute path="/home" component={Home} />
+        <PrivateRoute path="/rokkets" component={() => <h1>Rokkets</h1>} />
+        <PrivateRoute path="/labs" component={() => <h1>Labs</h1>} />
         <Route component={() => <h1>404</h1>} />
       </Switch>
     </Router>
