@@ -6,8 +6,8 @@ import Pages from './Pages'
 import { AuthProvider } from 'App/context/auth'
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyAUBie9o9FWeXyW4ex8IwQ1_2r89ijG5Dk',
-  authDomain: 'latam-bio-prod.firebaseapp.com',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
 })
 
 const App = () => {
