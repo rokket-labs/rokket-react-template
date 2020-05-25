@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import firebase from 'firebase'
 import { useHistory } from 'react-router-dom'
 import { Layout, Dropdown, Menu, Row, Button, Col } from 'antd'
 import {
@@ -13,13 +12,13 @@ import { useAuth } from 'App/context/auth'
 const { Sider, Header, Content, Footer } = Layout
 const AppLayout = ({ children }) => {
   const history = useHistory()
-  const { currentUser } = useAuth()
+  const { currentUser, signout } = useAuth()
   const [loading, setLoading] = useState(false)
 
   const logout = async () => {
     setLoading(true)
     try {
-      await firebase.auth().signOut()
+      await signout()
       history.push('/')
     } catch (error) {
       setLoading(false)

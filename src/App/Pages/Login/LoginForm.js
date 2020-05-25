@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import firebase from 'firebase'
 import { Button, Form, Input, notification } from 'antd'
 
+import { useAuth } from 'App/context/auth'
+
 const LoginForm = () => {
+  const { signin } = useAuth()
   const history = useHistory()
   const [loading, setLoading] = useState(false)
 
@@ -11,7 +13,7 @@ const LoginForm = () => {
     setLoading(true)
     try {
       const { email, password } = values
-      await firebase.auth().signInWithEmailAndPassword(email, password)
+      await signin(email, password)
       history.push('/home')
     } catch (error) {
       console.log(error)
