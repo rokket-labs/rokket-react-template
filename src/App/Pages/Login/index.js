@@ -8,10 +8,10 @@ import LoginForm from './LoginForm'
 const { Title } = Typography
 
 const Login = () => {
-  const { currentUser } = useAuth()
+  const { currentUser, mainRoute } = useAuth()
 
   if (currentUser) {
-    return <Redirect to="/home" />
+    return <Redirect to={mainRoute} />
   }
 
   return (

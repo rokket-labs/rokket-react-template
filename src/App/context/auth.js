@@ -7,22 +7,21 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null)
   const [pending, setPending] = useState(true)
 
+  const mainRoute = '/home'
+
   const signin = async (email, password) => {
     await firebase.auth().signInWithEmailAndPassword(email, password)
-    const { currentUser } = firebase.auth()
-    setCurrentUser(currentUser)
   }
 
   const signout = async () => {
     await firebase.auth().signOut()
-    const { currentUser } = firebase.auth()
-    setCurrentUser(currentUser)
   }
 
   useEffect(() => {
-    const { currentUser } = firebase.auth()
-    setCurrentUser(currentUser)
-    setPending(false)
+    firebase.auth().onAuthStateChanged(function(currentUser) {
+      setCurrentUser(currentUser)
+      setPending(false)
+    })
   }, [])
 
   if (pending) {
@@ -30,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ currentUser, signin, signout }}>
+    <AuthContext.Provider value={{ currentUser, signin, signout, mainRoute }}>
       {children}
     </AuthContext.Provider>
   )

@@ -1,11 +1,19 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
 import { Button, Col, Row, Space, Typography } from 'antd'
+
+import { useAuth } from 'App/context/auth'
 
 const { Title } = Typography
 
 const Landing = () => {
   const history = useHistory()
+  const { currentUser, mainRoute } = useAuth()
+
+  if (currentUser) {
+    return <Redirect to={mainRoute} />
+  }
+
   return (
     <>
       <Row justify="center">
