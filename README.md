@@ -21,5 +21,16 @@
 ```
 cd your-repo-name
 yarn
-yarn start
 ```
+
+### Enable Identity Platform
+
+1. Go to GCP console
+2. Enable Identity Platform on your project
+3. Create a file called `.env`and add 2 variables
+
+   3.1. REACT_APP_FIREBASE_API_KEY
+
+   3.2. REACT_APP_FIREBASE_AUTH_DOMAIN
+
+4. run your project
