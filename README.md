@@ -6,6 +6,7 @@
 
 <h3 align="center">Rokket Labs React Template</h3>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/658c0a93-e7e8-4dcc-9f9f-0507609e71f8/deploy-status)](https://app.netlify.com/sites/rokket-react-template/deploys)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rokket-labs/rokket-react-template/blob/master/LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/rokket-labs/rokket-react-template)](https://github.com/rokket-labs/rokket-react-template)
 <a href="https://github.com/rokket-labs/rokket-react-template/generate">
