@@ -20,6 +20,7 @@
 ### Install dependencies
 
 ```
+git clone git@github.com:rokket-labs/rokket-react-template.git
 cd your-repo-name
 yarn
 ```
