@@ -1,0 +1,8 @@
+tests:
+  - __tests__/**/*
+
+documentation:
+  - '**/*.md'
+
+'github actions':
+  - .github/**/*
