@@ -10,18 +10,15 @@ const { Title } = Typography
 const Login = () => {
   const { currentUser, mainRoute } = useAuth()
 
-  if (currentUser) {
-    return <Redirect to={mainRoute} />
-  }
-
+  if (currentUser) return <Redirect to={mainRoute} />
   return (
     <>
-      <Row justify="center">
-        <Title>Login</Title>
+      <Row justify="center" style={{ padding: '30px 0px' }}>
+        <Title>Rokket React Template</Title>
       </Row>
 
       <Row justify="center">
-        <Col span={8}>
+        <Col span={6}>
           <LoginForm />
         </Col>
       </Row>
