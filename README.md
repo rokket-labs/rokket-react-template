@@ -32,12 +32,19 @@ yarn
 
 ### Enable Identity Platform
 
-1. Go to GCP console
-2. Enable Identity Platform on your project
-3. Create a file called `.env`and add 2 variables
+1. GCP configuration
+   1.1 Enable Identity Platform on your project.
+
+   1.2 Add Email / Password provider and click Save.
+
+   1.3 Enable the provider.
+
+   1.4 Go to `Aplication setup details`and copy the apiKey and authDomain variables.
+
+2. Create a file called `.env`and add the variables from the previous step.
 
    3.1. REACT_APP_FIREBASE_API_KEY
 
    3.2. REACT_APP_FIREBASE_AUTH_DOMAIN
 
-4. run your project
+3. run your project

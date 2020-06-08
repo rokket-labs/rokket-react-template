@@ -1,0 +1,13 @@
+  
+[build]
+  command = "yarn build"
+
+[build.environment]
+  CI = "1"
+  REACT_APP_FIREBASE_API_KEY = "AIzaSyCX0AypOwdFqrL7ns-gP3c-dGCDJfUfySY"
+  REACT_APP_FIREBASE_AUTH_DOMAIN =  "rokket-react-template.firebaseapp.com"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
