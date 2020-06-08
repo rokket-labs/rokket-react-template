@@ -16,7 +16,7 @@
 ---
 
 This template is configured to use Google Cloud Platform as Identity Provider, feel free to modify the code for a AWS Cognito or a custom implementation.
-All PR's are welcome :smile::rocket:.
+All PR's are welcome :smile: :rocket:.
 
 ## Getting Started
 
