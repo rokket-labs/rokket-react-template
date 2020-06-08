@@ -16,20 +16,27 @@ export const AuthProvider = ({ children }) => {
   const signout = async () => {
     await firebase.auth().signOut()
   }
-
+  const sendPasswordResetEmail = async email => {
+    await firebase.auth().sendPasswordResetEmail(email)
+  }
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(function(currentUser) {
+    firebase.auth().onAuthStateChanged(currentUser => {
       setCurrentUser(currentUser)
       setPending(false)
     })
   }, [])
 
-  if (pending) {
-    return <>Loading...</>
-  }
+  if (pending) return <>Loading...</>
 
   return (
-    <AuthContext.Provider value={{ currentUser, signin, signout, mainRoute }}>
+    <AuthContext.Provider
+      value={{
+        currentUser,
+        sendPasswordResetEmail,
+        signin,
+        signout,
+        mainRoute,
+      }}>
       {children}
     </AuthContext.Provider>
   )
